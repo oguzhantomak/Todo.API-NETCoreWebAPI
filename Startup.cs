@@ -42,7 +42,10 @@ namespace TodoApi
             app.UseRouting();
 
             app.UseCors(builder => {
-                builder.WithOrigins("http://localhost:5002");
+                builder.WithOrigins("http://localhost:5002")
+                .AllowCredentials()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
             });
 
             app.UseAuthorization();

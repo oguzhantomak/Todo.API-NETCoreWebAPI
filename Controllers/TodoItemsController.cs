@@ -47,6 +47,7 @@ namespace TodoApi.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
+        [EnableCors]
         public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
         {
             if (id != todoItem.Id)
@@ -79,6 +80,7 @@ namespace TodoApi.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
         {
             _context.TodoItems.Add(todoItem);
@@ -89,6 +91,7 @@ namespace TodoApi.Controllers
 
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
+        [EnableCors]
         public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
